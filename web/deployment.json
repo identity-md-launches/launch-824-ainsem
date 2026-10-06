@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "launchId": "e0cd6858-1efc-49c3-a809-a0b59098bf13",
+  "chainId": 1,
+  "repoUrl": "https://github.com/identity-md-launches/launch-824-ainsem",
+  "sourceCommit": "41e1ec8f569943ea61e6540bc45c3cae8b049394",
+  "attestationHash": "53d4223753636c9f6c43f986cd9df435736acbb3a4665ee64da8419627810af7",
+  "manifest": {
+    "kind": "custom_token",
+    "token": {
+      "contract": "AINSEM",
+      "name": "AINSEM",
+      "symbol": "AINSEM",
+      "decimals": 18,
+      "constructorArgs": [
+        "$factory",
+        "$poolManager",
+        "$launchNumber"
+      ],
+      "totalSupply": "1000000000000000000000000000"
+    },
+    "contracts": [],
+    "pool": {
+      "pairedCurrency": "0x0000000000000000000000000000000000000000",
+      "fee": 3000,
+      "tickSpacing": 60,
+      "initialPrice": "792281625142643375935439503360000"
+    },
+    "economics": {
+      "poolBps": 8800,
+      "initialMarketCapWei": "10000000000000000000",
+      "remainderTo": "0x0d09e9e6c60430cc553ef395dc64778d7254926a"
+    },
+    "notes": "AINSEM (src/AINSEM.sol) has 18 decimals and mints 1,000,000,000 tokens once to the deploying factory in its constructor. There is no minting after launch. Ordinary transfers and transferFrom burn floor(amount / 100) minor units and deliver the remainder; allowances cover the gross amount. Transfers are exempt when the caller is the immutable factory; when the caller, sender or recipient is the immutable PoolManager; or when the caller or sender is the current distributor returned by factory.distributorOf(launchNumber). The constructor arguments are factory (address), poolManager (address), and launchNumber (uint64), in that order. No application contracts or initialization calls are required. The ETH pool fee is 0.3%, separate from the token's ordinary-transfer burn. With native ETH as currency0, initialPrice records sqrt(totalSupply / initialMarketCapWei) * 2^96. It is provenance only; deployment derives the opening price from the supplied economics and constructor supply."
+  },
+  "contracts": [
+    {
+      "name": "AINSEM",
+      "address": "0x4dc25f4a5beecfdd7ef3dde1c250cbcc29497753",
+      "txHash": "0x82bb75b7fbf05eedfde903cc7a3c527a5a9634dfd16b6fd2330f098c4d24b0fc",
+      "blockNumber": 26134973,
+      "creationCodeHash": "f1556137e986d70f65231c5be670f4b98050d1038fc0ecffb090eba444cce4f7",
+      "abiHash": "e03f49257f75d86857349f90492a61cf6ac71a77f5d4bc9289044461a477af14"
+    }
+  ],
+  "poolKey": {
+    "currency0": "0x0000000000000000000000000000000000000000",
+    "currency1": "0x4dc25f4a5beecfdd7ef3dde1c250cbcc29497753",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "hooks": "0x784ff9a3ac5d88a30bfff6f7f2a270161fbe6000"
+  },
+  "abiInstructions": "Build ABIs from this exact source commit; compare canonicalKeccak(abi) with abiHash. Verify deployed code on the stated chain before enabling transactions."
+}
